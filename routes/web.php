@@ -19,3 +19,8 @@ Route::get('/buku/create', [BukuController::class, 'create'])->name('buku.create
 Route::get('/', function () {
     return redirect()->route('buku.index'); // Redirect to the 'buku.index' route
 });
+// Route to show the edit form for a specific book
+Route::get('/buku/{id}/edit', [BukuController::class, 'edit'])->name('buku.edit');
+
+// Route to handle the form submission for updating the book
+Route::put('/buku/{id}', [BukuController::class, 'update'])->name('buku.update');

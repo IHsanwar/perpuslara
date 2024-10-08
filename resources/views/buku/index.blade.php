@@ -24,12 +24,12 @@
             <?php $no = 1;?>
                 @foreach($buku as $bk)
                     <tr>
-                        <td><?php echo $no++;?></td>
-                        <td>{{ $bk->judul }}</td>
-                        <td>{{ $bk->penulis }}</td>
-                        <td>{{ $bk->tanggal }}</td>
-                        <td>
-                            <a href="{{ route('buku.edit', $bk->id) }}" class="btn btn-warning">Edit</a>
+                        <td width="10%"><?php echo $no++;?></td>
+                        <td width="30%">{{ $bk->judul }}</td>
+                        <td width="20%">{{ $bk->penulis }}</td>
+                        <td width="20%">{{ $bk->tanggal }}</td>
+                        <td width="20%">
+                            <a href="{{ route('buku.edit', $bk->id) }}" class="btn btn-warning" >Edit</a>
                             <form action="{{ route('buku.destroy', $bk->id) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')

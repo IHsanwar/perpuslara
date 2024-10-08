@@ -28,7 +28,7 @@
             <input type="text" class="form-control" id="penulis" name="penulis" value="{{ old('penulis') }}" required>
         </div>
 
-        <div class="mb-3">
+        <div class="mb-3 w-25">
             <label for="tahun_terbit" class="form-label">Tahun Terbit</label>
             <input type="date" class="form-control" id="tanggal" name="tanggal" value="{{ old('tanggal') }}" required>
         </div>
