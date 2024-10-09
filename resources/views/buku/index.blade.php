@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1>Daftar Buku</h1>
+        <h1>Data Perpustakaan</h1>
         <a href="{{ route('buku.create') }}" class="btn btn-primary">Tambah Buku</a>
 
         @if(session('success'))
@@ -25,8 +25,8 @@
                 @foreach($buku as $bk)
                     <tr>
                         <td width="10%"><?php echo $no++;?></td>
-                        <td width="30%">{{ $bk->judul }}</td>
-                        <td width="20%">{{ $bk->penulis }}</td>
+                        <td width="30%" id="textToTruncate">{{ Str::limit($bk->judul, 30, '...') }}</td>
+                        <td width="20%">{{ Str::limit($bk->penulis, 30, '...') }}</td>
                         <td width="20%">{{ $bk->tanggal }}</td>
                         <td width="20%">
                             <a href="{{ route('buku.edit', $bk->id) }}" class="btn btn-warning" >Edit</a>
@@ -41,4 +41,16 @@
             </tbody>
         </table>
     </div>
+
+    <script>
+        const textElement = document.getElementById('textToTruncate');
+        const maxLength = 20;
+        
+        if (textElement.innerText.length > maxLength) {
+            textElement.innerText = textElement.innerText.substring(0, maxLength) + '...';
+        }
+    </script>
+    <style>
+   
+</style>
 @endsection
